@@ -1,0 +1,6 @@
+{
+  "name": "Auto New Workspace",
+  "description": "Moves each new app window to its own workspace",
+  "uuid": "auto-new-workspace@local",
+  "shell-version": ["42", "43", "44", "45", "46", "47", "48"]
+}
