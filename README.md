@@ -1,28 +1,25 @@
-# Auto New Workspace — GNOME Shell Extension
+Auto New Workspace — GNOME Shell Extension
+Automatically moves a maximized app to its own workspace and switches to it — just like macOS Spaces. When you unmaximize, the app returns to its original workspace.
+Requirements
 
-Automatically moves each newly opened app to its own workspace, so you can swipe between apps with 3 fingers — just like macOS.
+GNOME Shell 42, 43, 44, 45, 46, 47, 48
+Wayland
 
-## Requirements
-- GNOME Shell 42, 43, 44, 45, 46, 47, 48
-- Wayland
-
-## Install
-```bash
-git clone https://github.com/reji-abhishek/auto-new-workspace ~/.local/share/gnome-shell/extensions/auto-new-workspace@local
+Install
+bashgit clone https://github.com/reji-abhishek/auto-new-workspace ~/.local/share/gnome-shell/extensions/auto-new-workspace@local
 gnome-extensions enable auto-new-workspace@local
-```
 Log out and back in.
+How it works
 
-## ⚠️ Warning
-- This extension moves **every** new window to a fresh workspace. Apps that open multiple windows (like a browser opening a popup or a save dialog) may get split across workspaces. Add such apps to the ignore list if this causes issues.
-- Only tested on **Wayland**. X11 is not supported.
-- Disabling the extension will not move existing windows back — you'll need to rearrange them manually or log out and back in.
+Maximize any app (Super+Up or title bar button) → it moves to a fresh workspace and the screen follows
+Unmaximize → it returns to the workspace it came from
+Swipe between workspaces with 3 fingers
 
-## Ignore List
-Edit `extension.js` and add app class names to `IGNORED_APPS`. To find an app's class name, open the app, focus it, then check:
-```bash
-journalctl /usr/bin/gnome-shell | grep auto-workspace
-```
+⚠️ Warning
 
-## License
+Only tested on Wayland. X11 is not supported.
+If you unmaximize an app and its original workspace no longer exists, it will stay on the current workspace.
+Disabling the extension will not move existing windows back — rearrange them manually or log out and back in.
+
+License
 MIT
